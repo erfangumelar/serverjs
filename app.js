@@ -1,6 +1,10 @@
 import express from "express";
 import apiRouter from "./routes/api.js";
 import connection from "./connection.js";
+import dotenv from "dotenv";
+
+// dotenv
+const env = dotenv.config().parsed;
 
 const app = express();
 
@@ -24,6 +28,6 @@ app.use((req, res) => {
 connection();
 
 // setting port
-app.listen(3000, () => {
-  console.log(`Server started on 3000`);
+app.listen(env.APP_PORT, () => {
+  console.log(`Server started on ${env.APP_PORT}`);
 });
