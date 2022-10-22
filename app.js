@@ -1,5 +1,6 @@
 import express from "express";
 import apiRouter from "./routes/api.js";
+import connection from "./connection.js";
 
 const app = express();
 
@@ -18,6 +19,9 @@ app.use((req, res) => {
     message: "404_NOT_FOUND",
   });
 });
+
+// MongoDb connection
+connection();
 
 // setting port
 app.listen(3000, () => {
